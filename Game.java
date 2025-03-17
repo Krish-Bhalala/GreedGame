@@ -18,7 +18,7 @@ public abstract class Game implements RunnableGame {
                 isGamemode = menu.nextState(menu);
                 while ( isGamemode ) {
                     game.view();
-                    board.view();   
+                    board.view();
                     isGamemode = game.nextState(board);
                 }
                 menu.setMessage("Welcome back!");
