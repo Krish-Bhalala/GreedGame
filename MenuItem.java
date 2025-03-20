@@ -12,8 +12,19 @@ public abstract class MenuItem implements Selectable{
     public boolean equals(int menuCode){
         return this.menuCode == menuCode;
     }
+    // public boolean equals(MenuItem item){
+    //     return this.menuCode == item.menuCode;
+    // }
     
     public void print(){
         System.out.println(description);
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    
+    public int getSelectionKey() {
+        return menuCode;
     }
 }

@@ -10,14 +10,17 @@ public class Menu implements Menuable{
     public Menu(String message, boolean inGameMode) {
         setMessage(message);
         menuItems = new ArrayList<MenuItem>();
-        addMenuItem(new QuitMenuItem(Constants.MenuConstants.QUIT,"Quit the current game"));
-        //addMenuItem(new MenuItem(Constants.MenuConstants.BACK_TO_MENU, "Return to the main menu"));
+        addMenuItem(new QuitMenuItem());
+        addMenuItem(new NewGameMenuItem());
         this.inGameMode = inGameMode;
     }
     
     public void addMenuItem(MenuItem item) {
         menuItems.add(item);
     } 
+    public void removeMenuItem(MenuItem item) {
+        menuItems.remove(item);
+    }
     
     @Override
     public void setMessage(String message) {
@@ -34,9 +37,7 @@ public class Menu implements Menuable{
     
     @Override
     public boolean nextState(Viewable v) {
-        
         //wait for user input to input correct menu option
-        
         System.out.print("Select a menu option number: ");
         int code = scanner.nextInt();
         while(!this.isValidOption(code)){
@@ -71,8 +72,9 @@ public class Menu implements Menuable{
     @Override
     public void reset() {
         menuItems.clear();
-        addMenuItem(new QuitMenuItem(Constants.MenuConstants.QUIT,"Quit the current game"));
-        inGameMode = true;
+        addMenuItem(new QuitMenuItem());
+        addMenuItem(new NewGameMenuItem());
+        inGameMode = false;
     }
 
     public void cleanup(){

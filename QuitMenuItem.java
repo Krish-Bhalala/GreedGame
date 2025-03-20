@@ -1,10 +1,12 @@
 public class QuitMenuItem extends MenuItem {
-    public QuitMenuItem(int menuCode, String message) {
-        super(menuCode, message);
+    public QuitMenuItem() {
+        super(Constants.MenuConstants.QUIT, "Quit the game");
     }
 
     public boolean select(Viewable v, GameLogical gl) {
         //quit the game
-        return false;
+        System.out.println("Thank You for playing the game. Goodbye!");
+        System.exit(0);
+        return false;   //fallback for the exit failure
     }
 }
