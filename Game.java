@@ -10,6 +10,7 @@ public abstract class Game implements RunnableGame {
             board = gb;
             menu = m;
         }
+
         //Methods
         @Override
         public void run() {

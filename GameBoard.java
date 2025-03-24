@@ -44,7 +44,7 @@ public abstract class GameBoard implements Boardable {
         for(int i = 0; i < this.rows; i++) {
             for(int j = 0; j < this.cols; j++) {
                 System.out.print(this.board[i][j]);
-                System.out.print(" ");
+                //System.out.print(" ");
             }
             System.out.println();
         }

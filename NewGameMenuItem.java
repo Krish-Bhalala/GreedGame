@@ -4,11 +4,7 @@ public class NewGameMenuItem extends MenuItem{
     }
 
     public boolean select(Viewable v, GameLogical gl) {
-        if(gl instanceof Menu){
-            ((Menu)gl).removeMenuItem(this);
-            //add the back to menu option to the current menu
-            ((Menu)gl).addMenuItem(new BackMenuItem());
-        }
+        //switch to game mode
         return true;
     }
 }

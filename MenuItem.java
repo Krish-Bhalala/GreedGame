@@ -1,4 +1,4 @@
-public abstract class MenuItem implements Selectable{
+public abstract class MenuItem implements Selectable, Viewable, Equitable{
     private String description;
     private int menuCode;
 
@@ -9,14 +9,14 @@ public abstract class MenuItem implements Selectable{
 
     public abstract boolean select(Viewable v, GameLogical gl);
 
-    public boolean equals(int menuCode){
-        return this.menuCode == menuCode;
+    public boolean equals(int key){
+        return this.menuCode == key;
     }
     // public boolean equals(MenuItem item){
     //     return this.menuCode == item.menuCode;
     // }
     
-    public void print(){
+    public void view(){
         System.out.println(description);
     }
 

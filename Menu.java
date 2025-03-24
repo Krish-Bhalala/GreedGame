@@ -31,7 +31,7 @@ public class Menu implements Menuable{
     public void view() {
         System.out.println(message);
         for (MenuItem item : menuItems) {
-            item.print();
+            item.view();
         }
     }
     

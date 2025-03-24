@@ -1,6 +1,6 @@
 run:
-	javac Main.java
-	java Main
+	javac GreedGame.java
+	java GreedGame
 
 clean:
 	rm -f *.class
