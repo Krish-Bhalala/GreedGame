@@ -11,7 +11,8 @@ public class GreedGameLogic extends GameLogic {
     public GreedGameLogic(GreedGameBoard board) {
         this.board = board;
         this.stats = new GameStats();
-        this.player = new HumanPlayer();
+        //this.player = new HumanPlayer("I'm A Human Student Studying COMP2150 with Oliver");
+        this.player = new CPUPlayer("I'm A CPU Player NOT Studying COMP2150 with Oliver");
         this.currentMoves = new ArrayList<>();
         this.gameOver = false;
     }
@@ -43,14 +44,16 @@ public class GreedGameLogic extends GameLogic {
             if (newRow >= 0 && newRow < board.getRows() && 
                 newCol >= 0 && newCol < board.getCols()) {
                 
-                char cellValue = board.getCharAt(newRow, newCol);
-                if (Character.isDigit(cellValue)) {
-                    int distance = Character.getNumericValue(cellValue);
+                String cellValue = board.getCellAt(newRow, newCol);
+                try{
+                    int distance = Integer.valueOf(cellValue);
                     
                     // Check if this move is valid
                     if (distance >= 1 && distance <= 9 && board.isValidLocation(dir, distance)) {
                         moves.add(new GameMove(dir, distance));
                     }
+                }catch(Exception e){
+                    //skip
                 }
             }
         }
@@ -84,6 +87,7 @@ public class GreedGameLogic extends GameLogic {
         currentMoves.addAll(possibleMoves);
         
         // Add return to menu option
+        // Make sure that BackToMenuOption always stays at the end of the list
         currentMoves.add(new BackToMenuOption());
         
         // Display available moves
@@ -133,5 +137,6 @@ public class GreedGameLogic extends GameLogic {
     public void view(){
         System.out.print("Game stats: ");
         this.stats.view();
+        System.out.println();
     }
 }

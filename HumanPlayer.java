@@ -6,12 +6,19 @@ import java.util.Scanner;
  * It implements the Player interface
  */
 public class HumanPlayer implements Player {
+    private String name;
     private Scanner scanner;
     
     //Constructor
-    public HumanPlayer() {
+    public HumanPlayer(String name) {
+        this.name = name;
         //initializes a new Scanner to read from System.in
         this.scanner = new Scanner(System.in);
+    }
+
+    //getter
+    public String getName(){
+        return name;
     }
     
     /**

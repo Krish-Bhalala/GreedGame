@@ -1,3 +1,5 @@
+//! TO REMOVE
+
 public abstract class GameLogic implements GameLogical {
 
     public abstract boolean nextState(Viewable v);

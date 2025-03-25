@@ -6,7 +6,7 @@ public class GameMove implements Selectable, Viewable, Equitable {
     public GameMove(Constants.GameConstants.Direction direction, int distance) {
         this.direction = direction;
         this.distance = distance;
-        this.description = direction.getKey() + ") Move "+ distance + " blocks " + direction.name();
+        this.description = "Move "+ distance + " blocks " + direction.name();
     }   
     
     public Constants.GameConstants.Direction getDirection() {
@@ -18,7 +18,7 @@ public class GameMove implements Selectable, Viewable, Equitable {
     }
 
     public void view(){
-        System.out.println(description);
+        System.out.println("(" + direction.getKey() + ") " + description);
     }
 
     public boolean equals(int key){
@@ -27,12 +27,11 @@ public class GameMove implements Selectable, Viewable, Equitable {
     
     @Override
     public boolean select(Viewable v, GameLogical gl) {
+        System.out.println("Let's " + this.description);
         if(v instanceof GreedGameBoard){
             GreedGameBoard board = (GreedGameBoard)v;
             //move the player insignia
             board.executeMove(direction, distance);
-
-            //update the score is done in greed game logic
             return true;
         }
         return false;
