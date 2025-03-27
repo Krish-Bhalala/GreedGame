@@ -1,36 +1,50 @@
+// CLASS: HumanPlayer
+//
+// Author: Krish Bhalala
+//
+// REMARKS: This class represents a human player that interacts with the game via console input.
+//          It implements the Player interface.
+//
+//-----------------------------------------
+
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * HumanPlayer represents a human player that interacts with the game via console input.
- * It implements the Player interface
- */
 public class HumanPlayer implements Player {
-    private String name;
-    private Scanner scanner;
+    // Class variables
+    private String name;  // Name of the human player
+    private Scanner scanner;  // Scanner for reading user input
     
-    //Constructor
+    //------------------------------------------------------
+    // HumanPlayer
+    //
+    // PURPOSE: Constructor to initialize a human player
+    // PARAMETERS:
+    //     name - The name of the human player
+    // Returns: None
+    //------------------------------------------------------
     public HumanPlayer(String name) {
         this.name = name;
         //initializes a new Scanner to read from System.in
         this.scanner = new Scanner(System.in);
     }
 
-    //getter
+    // Getter for player name
     public String getName(){
         return name;
     }
     
-    /**
-     * Allows the human player to choose a selection from the available options
-     * by displaying the options and reading input from the console.
-     * 
-     * @param options List of selectable options available to the player
-     * @param gameState The current viewable state of the game
-     * @return The selected option from the list, or null if selection was invalid
-     */
+    //------------------------------------------------------
+    // chooseSelection
+    //
+    // PURPOSE: Allows the human player to choose a selection from available options
+    // PARAMETERS:
+    //     options - List of selectable options available to the player
+    //     gameState - The current viewable state of the game
+    // Returns: The selected option from the list, or null if selection was invalid
+    //------------------------------------------------------
     @Override
-    public Selectable chooseSelection(List<Selectable> options, Viewable gameState) {
+    public Selectable chooseSelection(List<Selectable> options) {
         Selectable move = null;
         while(null == move){
             System.out.print("Enter your choice: ");
@@ -59,7 +73,15 @@ public class HumanPlayer implements Player {
         return null;
     }
 
-    //if the move selected is from the valid move list
+    //------------------------------------------------------
+    // findSelectedMove
+    //
+    // PURPOSE: Finds the selected move from the list of valid moves
+    // PARAMETERS:
+    //     options - List of selectable options
+    //     key - The key representing the selected move
+    // Returns: The selected Selectable object if found, null otherwise
+    //------------------------------------------------------
     public Selectable findSelectedMove(List<Selectable> options, int key){
         for (Selectable option : options) {
             if(option instanceof Equitable && ((Equitable)option).equals(key)){
@@ -69,11 +91,20 @@ public class HumanPlayer implements Player {
         return null;
     }
     
-    /**
-     * Clean up resources when the player is no longer needed.
-     * This method could be called when the game is shutting down.
-     */
+    
+    //------------------------------------------------------
+    // close
+    //
+    // PURPOSE: Cleans up resources when the player is no longer needed
+    // PARAMETERS: None
+    // Returns: None
+    //------------------------------------------------------
     public void close() {
         if(scanner != null) scanner.close();
+    }
+
+    //prints the name of the player
+    public void view(){
+        System.out.println(name);
     }
 }

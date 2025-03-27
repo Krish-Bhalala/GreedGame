@@ -66,8 +66,8 @@ public final class Constants {
 
     // MenuConstants inner class
     public abstract static class MenuConstants {
-        // Menu option constants
-        public static final int BACK_TO_MENU = 5;
+        // Menu codes constants
+        public static final int BACK_TO_MENU = 0;
         public static final int QUIT = 0;
         public static final int BEGIN_NEW_GAME = 1;
 

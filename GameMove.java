@@ -1,39 +1,28 @@
-public class GameMove implements Selectable, Viewable, Equitable {
-    private Constants.GameConstants.Direction direction;
-    private int distance;
-    private String description;
-    
-    public GameMove(Constants.GameConstants.Direction direction, int distance) {
-        this.direction = direction;
-        this.distance = distance;
-        this.description = "Move "+ distance + " blocks " + direction.name();
-    }   
-    
-    public Constants.GameConstants.Direction getDirection() {
-        return direction;
-    }
-    
-    public int getDistance() {
-        return distance;
+// CLASS: GameMove
+//
+// Author: Krish Bhalala
+//
+// REMARKS: This class keeps track of basic properties of game moves that any game could have
+//
+//-----------------------------------------
+public abstract class GameMove implements Selectable, Viewable, Equitable {
+    private String description;         // Description of the move
+
+    //CONSTRUCTOR
+    public GameMove(String description){
+        this.description = description;
     }
 
+    //Display the move description
     public void view(){
-        System.out.println("(" + direction.getKey() + ") " + description);
+        System.out.println(description);
     }
 
-    public boolean equals(int key){
-        return Integer.parseInt("" + this.direction.getKey()) == key;
-    }
-    
-    @Override
-    public boolean select(Viewable v, GameLogical gl) {
-        System.out.println("Let's " + this.description);
-        if(v instanceof GreedGameBoard){
-            GreedGameBoard board = (GreedGameBoard)v;
-            //move the player insignia
-            board.executeMove(direction, distance);
-            return true;
-        }
-        return false;
-    }
+    //SELECTOR
+    public abstract boolean select(Viewable v, GameLogical gl);
+
+    //COMPARATOR
+    //To compare/search based on some key
+    public abstract boolean equals(int key);
+
 }

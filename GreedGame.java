@@ -1,3 +1,17 @@
+//-----------------------------------------
+// NAME	: Krish Bhalala
+// STUDENT NUMBER : 797497
+// COURSE : COMP 215
+// INSTRUCTOR : Oliver
+// ASSIGNMENT : assignment
+//
+// REMARKS: This program implements the Greed game, initializing the game component
+// and starting the game loop
+//
+//-----------------------------------------
+
+import java.util.Scanner;
+
 public class GreedGame extends Game {
     private static final int BOARD_ROWS = 20;
     private static final int BOARD_COLS = 80;
@@ -14,12 +28,16 @@ public class GreedGame extends Game {
         GreedGameBoard board = new GreedGameBoard(BOARD_ROWS, BOARD_COLS);
 
         // Create game logic with the board
-        GreedGameLogic gameLogic = new GreedGameLogic(board);
+        GreedGameLogic gameLogic = new GreedGameLogic();
 
         // Create menu with welcome message
-        Menu menu = new Menu("Welcome to Greed!",false);
+        Menu menu = new Menu("Welcome to Greed Game!");
 
-        GreedGame game = new GreedGame(board,gameLogic,menu);
+        // Create a greed game
+        Game game = new GreedGame(board,gameLogic,menu);
+
+        //run the greed game
         game.run();
+    
     }
 }

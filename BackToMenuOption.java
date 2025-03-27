@@ -35,11 +35,11 @@ public class BackToMenuOption implements Selectable, Viewable, Equitable {
     public boolean select(Viewable v, GameLogical gl) {
         // Display the final score before terminating the game
         System.out.println();
-        v.view();
+        gl.view();
         
-        // Inform the user about going back to menu
+        // Inform the player about going back to menu
         System.out.println("Ok, going back to menu");
-        System.out.println("--------------------------------------------------------------------------\n");
+        System.out.println("Thank you for playing");
         
         return false;
     }
