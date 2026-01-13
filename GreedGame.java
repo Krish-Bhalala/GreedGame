@@ -1,13 +1,6 @@
 //-----------------------------------------
-// NAME	: Krish Bhalala
-// STUDENT NUMBER : 797497
-// COURSE : COMP 215
-// INSTRUCTOR : Oliver
-// ASSIGNMENT : assignment
-//
 // REMARKS: This program implements the Greed game, initializing the game component
 // and starting the game loop
-//
 //-----------------------------------------
 
 import java.util.Scanner;
